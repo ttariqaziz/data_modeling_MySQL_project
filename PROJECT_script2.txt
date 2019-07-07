@@ -1,0 +1,518 @@
+CREATE TABLE DEPT
+  2  (DEPT_ID NUMBER PRIMARY KEY,
+  3  DEPT_NAME VARCHAR2(40))
+  4  TABLESPACE USERS;
+
+Table created.
+
+SQL> DESCRIBE DEPT;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPT_ID				   NOT NULL NUMBER
+ DEPT_NAME					    VARCHAR2(40)
+
+
+
+
+SQL> create sequence DEPT_DEP_ID_SEQ
+  2  INCREMENT BY 1
+  3  START WITH 11000
+  4  MAXVALUE 11099
+  5  NOCACHE
+  6  NOCYCLE;
+
+Sequence created.
+
+
+
+SQL> INSERT INTO DEPT
+  2  VALUES
+  3  (DEPT_DEP_ID_SEQ.NEXTVAL,'ADMINISTRATION'); 
+
+1 row created.
+
+
+SQL> INSERT INTO DEPT
+  2  VALUES
+  3  (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT');
+Enter value for dept: MARKETING
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'MARKETING')
+
+1 row created.
+
+
+
+SQL> /
+Enter value for dept: SHIPPING
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'SHIPPING')
+
+1 row created.
+
+
+
+SQL> /
+Enter value for dept: IT
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'IT')
+
+1 row created.
+
+
+
+SQL> /
+Enter value for dept: SALES
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'SALES')
+
+1 row created.
+
+
+
+SQL> /
+Enter value for dept: HR
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'HR')
+
+1 row created.
+
+
+
+SQL> /
+Enter value for dept: ACCOUNTING
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'ACCOUNTING')
+
+1 row created.
+
+
+
+SQL> /  
+Enter value for dept: CEO OFFICE
+old   3: (DEPT_DEP_ID_SEQ.NEXTVAL, '&DEPT')
+new   3: (DEPT_DEP_ID_SEQ.NEXTVAL, 'CEO OFFICE')
+
+1 row created.
+
+
+
+SQL> SELECT * FROM DEPT;
+
+   DEPT_ID DEPT_NAME
+---------- ----------------------------------------
+     11000 ADMINISTRATION
+     11001 MARKETING
+     11002 SHIPPING
+     11003 IT
+     11004 SALES
+     11005 HR
+     11006 ACCOUNTING
+     11007 CEO OFFICE
+
+8 rows selected.
+
+
+
+
+
+SQL> INSERT INTO LOC VALUES(101,'SAN JOSE', 'CA', 'USA');
+
+1 row created.
+
+SQL> INSERT INTO LOC VALUES(102,'FREMONT','CA', 'USA');
+
+1 row created.
+
+SQL> INSERT INTO LOC VALUES(103,'LA','CA', 'USA');
+
+1 row created.
+
+SQL> INSERT INTO LOC VALUES(104,'NEW YORK','MANHATTAN','USA');
+
+1 row created.
+
+SQL> INSERT INTO LOC VALUES(105,'LAS VEGAS', 'NEVADA','USA');
+
+1 row created.
+
+SQL> INSERT INTO LOC VALUES(106,'ORLANDO','FLORIDA','USA');
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+
+
+
+SQL> SELECT * FROM LOC;
+
+LOCATION_ID CITY				     STATE				      COUNTRY
+----------- ---------------------------------------- ---------------------------------------- ----------------------------------------
+	101 SAN JOSE				     CA 				      USA
+	102 FREMONT				     CA 				      USA
+	103 LA					     CA 				      USA
+	104 NEW YORK				     MANHATTAN				      USA
+	105 LAS VEGAS				     NEVADA				      USA
+	106 ORLANDO				     FLORIDA				      USA
+
+6 rows selected.
+
+
+
+
+
+
+Create sequence EMP_EMP_NO_SEQ
+INCREMENT BY 1
+START WITH 1001
+MAXVALUE 9999
+NOCACHE
+NOCYCLE;
+
+Sequence created.
+
+
+
+
+SQL>  INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'ELEN','ABEL',11000,101,1010,'SR.ADMIN MANAGER','A',1000,NULL,'01-JAN-90');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'PETER','WHITE',11001,102,1113,'MARKETING MANAGER','A',1500,NULL,'02-FEB-91');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'ALEX','LI',11002,103,1111,'LOGISTIC EXECUTIVE','A',2000,2,'03-MAR-92');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'AUSTIN','HO',11003,104,1007,'SR.DEVELOPER','A',2500,2,'04-APR-93');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'RAYSON','LEE',11004,105,1115,'SALES MANAGER','A',3000,NULL,'05-MAY-94');
+
+1 row created.
+
+
+SQL>  INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'TINLOT','HU',11003,106,1007,'SYS.PROGRAMMER','A',3500,NULL,'06-JUNE-95');
+
+1 row created.
+
+
+INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'JASON','TENG',11003,105,1115,'SOFTWARE MANAGER','A',4000,3,'07-JUL-96');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'WATSON','DENG',11005,103,1001,'HR MANAGER','A',4500,3,'08-AUG-97');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'VINCENT','WANG',11003,106,1007,'SOFTWARE DEVELOPER','A',5000,NULL,'09-SEP-98');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'GEORGE','CHEN',11006,102,1114,'ACCOUNT MANAGER','A',5500,NULL,'10-OCT-99');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'JODEN','HIGGINS',11002,101,1115,'LOGISTIC MANAGER','A',6000,NULL,'11-NOV-00');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'JERRY','XU',11004,106,1005,'SALAES EXECUTIVE','A',6500,NULL,'12-DEC-01');
+
+1 row created.
+
+
+INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'BILLY','SHI',11001,103,1114,'PRODUCT MANGER','A',7000,NULL,'01-JAN-02');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'IRIS','CHEN',11007,102,1118,'CFO','A',7500,NULL,'02-FEB-03');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'KIKO','SUN',11007,104,1118,'VP','A',8000,NULL,'03-MAR-04');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'IVY','WANG',11003,105,1007,'SOFTWARE DEVELOPER','A',8500,NULL,'04-APR-05');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'BEN','CHIENG',11003,101,1007,'QA','A',9000,NULL,'05-MAY-06');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'ESTELLA','PAN',11007,106,NULL,'CEO','A',9500,NULL,'06-JUN-07');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'PEGGY','KUO',11004,102,1112,'SALES SUPPORT','A',10000,NULL,'07-JUL-08');
+
+1 row created.
+
+
+SQL> INSERT INTO EMP VALUES(EMP_EMP_NO_SEQ.NEXTVAL,'GRACE','LIN',11006,101,1010,'ACCOUNT EXECUTIVE','A',15000,NULL,'08-AUG-09');
+
+1 row created.
+
+
+
+I
+SQL> COMMIT;
+
+Commit complete.
+
+
+
+
+desc comm;
+ Name														   Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ EMPLOYEE_NO													   NOT NULL NUMBER
+ TYPE														   NOT NULL VARCHAR2(10)
+ DATA															    VARCHAR2(40)
+
+SQL> 
+
+
+
+
+
+INSERT INTO COMM VALUES(1001,'EMAIL','elen23@gmail.com');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1001,'TEL','501-456-2345');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1002,'CELL','502-345-1243');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1002,'FAX','542-456-2487');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1003,'EMAIL','alex@yahoo.in');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1003,'CELL','502-595-5689');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1004,'FAX','542-850-5634');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1005,'TEL','501-567-0945');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1006,'CELL','502-890-7654');
+
+1 row created.
+
+SQL> INSERT INTO COMM VALUES(1007,'TEL','501-876-0790');
+
+1 row created.
+
+SQL> 
+
+COMMIT;
+
+Commit complete.
+
+
+
+select * from comm;
+
+EMPLOYEE_NO TYPE       DATA
+----------- ---------- ----------------------------------------
+       1011 EMAIL      elen23@gmail.com
+       1011 TEL        501-456-2345
+       1012 CELL       502-345-1243
+       1012 FAX        542-456-2487
+       1013 EMAIL      alex@yahoo.in
+       1013 CELL       502-595-5689
+       1014 FAX        542-850-5634
+       1015 TEL        501-567-0945
+       1016 CELL       502-890-7654
+
+9 rows selected.
+
+
+
+
+INSERT INTO FAM VALUES(1011,1,'W','ABEL','ELEN','F','01-JAN-90');
+
+1 row created.
+
+SQL> INSERT INTO FAM VALUES(1011,2,'S','ABEL','ELEN','M','01-JAN-90');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1011,3,'D','ABEL','ELEN','F','01-JAN-90');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1012,1,'S','WHITE','PETER','M','02-FEB-91');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1014,1,'S','HO','AUSTIN','M','04-APR-93');
+
+1 row created.
+
+
+
+
+SQL> INSERT INTO FAM VALUES(1015,1,'S','LEE','RAYSON','M','05-MAY-94');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1016,1,'S','HU','TINLOT','M','06-JUN-95');
+
+1 row created.
+
+
+
+
+SQL> INSERT INTO FAM VALUES(1022,1,'S','TENG','JASON','M','07-JUL-96');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1029,1,'S','DENG','WATSON','M','08-AUG-97');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1030,1,'S','WANG','VINCENT','M','09-SEP-98');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1031,1,'S','CHEN','GEORGE','M','10-OCT-99');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1031,2,'W','CHEN','GEORGE','F','10-OCT-99');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1032,1,'W','HIGGINS','JODEN','F','11-NOV-00');
+
+1 row created.
+
+
+SQL> INSERT INTO FAM VALUES(1033,1,'D','XU','JERRY','F','12-DEC-01');
+
+1 row created.
+
+SQL> INSERT INTO FAM VALUES(1034,1,'S','SHI','BILLY','M','01-JAN-02');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1034,2,'W','SHI','BILLY','F','01-JAN-02');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1035,1,'S','CHEN','IRIS','M','02-FEB-03');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1035,2,'W','CHEN','IRIS','F','02-FEB-03');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1036,1,'D','SUN','KIKO','F','03-MAR-04');
+
+1 row created.
+
+
+
+SQL> INSERT INTO FAM VALUES(1036,2,'S','SUN','KIKO','M','03-MAR-04');
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> select * from fam;
+
+EMPLOYEE_NO  FAMILY_NO M LAST_NAME				  FIRST_NAME				   G DOB
+----------- ---------- - ---------------------------------------- ---------------------------------------- - ---------
+       1011	     2 S ABEL					  ELEN					   M 01-JAN-90
+       1011	     3 D ABEL					  ELEN					   F 01-JAN-90
+       1012	     1 S WHITE					  PETER 				   M 02-FEB-91
+       1014	     1 S HO					  AUSTIN				   M 04-APR-93
+       1015	     1 S LEE					  RAYSON				   M 05-MAY-94
+       1016	     1 S HU					  TINLOT				   M 06-JUN-95
+       1022	     1 S TENG					  JASON 				   M 07-JUL-96
+       1029	     1 S DENG					  WATSON				   M 08-AUG-97
+       1030	     1 S WANG					  VINCENT				   M 09-SEP-98
+       1031	     1 S CHEN					  GEORGE				   M 10-OCT-99
+       1031	     2 W CHEN					  GEORGE				   F 10-OCT-99
+
+EMPLOYEE_NO  FAMILY_NO M LAST_NAME				  FIRST_NAME				   G DOB
+----------- ---------- - ---------------------------------------- ---------------------------------------- - ---------
+       1032	     1 W HIGGINS				  JODEN 				   F 11-NOV-00
+       1033	     1 D XU					  JERRY 				   F 12-DEC-01
+       1034	     1 S SHI					  BILLY 				   M 01-JAN-02
+       1034	     2 W SHI					  BILLY 				   F 01-JAN-02
+       1035	     1 S CHEN					  IRIS					   M 02-FEB-03
+       1035	     2 W CHEN					  IRIS					   F 02-FEB-03
+       1036	     1 D SUN					  KIKO					   F 03-MAR-04
+       1036	     2 S SUN					  KIKO					   M 03-MAR-04
+       1011	     1 W ABEL					  ELEN					   F 01-JAN-90
+
+20 rows selected.
+
+SQL> 
