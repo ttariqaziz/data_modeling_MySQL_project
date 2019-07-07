@@ -1,0 +1,20 @@
+------------------------------
+Normalization(1st Normal Form):-
+------------------------------
+Department = #DEPT_ID + DEPT_NAME
+
+Employee = # EMPLOYEE_NO  +  FIRST_NAME + LAST_NAME  +  DEPT_ID +  LOC_ID  +  MANAGER_ID  +  POSTION  +  STATUS  +  SALARY  +  COMMISSION_PCT  + DOB
+
+Location = #LOCATION_ID  +  CITY  +  STATE + COUNTRY
+
+Communication = #EMPLOYEE_NO  +  TYPE  +  DATA
+
+Family = # EMPLOYEE_NO  +  FAMILY_NO + MEMBER  + LAST_NAME + FIRST_NAME + GENDER + DOB
+
+------------------------------
+Normalization(2nd Normal Form):-
+------------------------------
+Communication = #EMPLOYEE_NO  +  TYPE  +  DATA
+
+Family = # EMPLOYEE_NO  +  FAMILY_NO + MEMBER  + LAST_NAME + FIRST_NAME + GENDER + DOB
+Time = #EMPLOYEE_NO  +  DATE + HOURS
