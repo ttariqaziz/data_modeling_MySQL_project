@@ -1,2 +1,2 @@
 # datamodelingsql
-Human Resource Management System uisng Oracle SQL Developer
+Human Resource Management System using Oracle SQL Developer
