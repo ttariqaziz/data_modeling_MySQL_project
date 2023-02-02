@@ -6,7 +6,7 @@ This project Human Resource system designed to managing all information of an in
 <img src = "https://github.com/ttariqaziz/data_modeling_MySQL/blob/master/Plot/Final%20Output%20Report.jpg">
 
 ## Entity Relationship Diagram (ERD)
-<img src = "https://github.com/ttariqaziz/data_modeling_MySQL/blob/master/Entitity%20Relationship%20Diagram.jpg">
+<img src = "https://github.com/ttariqaziz/data_modeling_MySQL/blob/master/Plot/Entitity%20Relationship%20Diagram.jpg">
 
 ## Data Dictionary
 <img src = "https://github.com/ttariqaziz/data_modeling_MySQL/blob/master/Data%20Dictionary.jpg">
