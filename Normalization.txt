@@ -1,3 +1,4 @@
+Normalization is a process used in relational database design to organize and structure data in a way that minimizes redundancy, reduces anomalies, and maintains data integrity. It involves dividing a database into smaller, related tables and establishing relationships between those tables.
 ------------------------------
 Normalization(1st Normal Form):-
 ------------------------------
@@ -14,6 +15,8 @@ Family = # EMPLOYEE_NO  +  FAMILY_NO + MEMBER  + LAST_NAME + FIRST_NAME + GENDER
 ------------------------------
 Normalization(2nd Normal Form):-
 ------------------------------
+2NF eliminates partial dependencies, where non-key attributes depend on only part of the primary key. This is usually achieved by breaking down a table into multiple related tables, each with a unique primary key.
+
 Communication = #EMPLOYEE_NO  +  TYPE  +  DATA
 
 Family = # EMPLOYEE_NO  +  FAMILY_NO + MEMBER  + LAST_NAME + FIRST_NAME + GENDER + DOB
